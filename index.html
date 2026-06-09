@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rohit Mandapalli — Lead Product Manager</title>
+<meta name="description" content="Rohit Mandapalli — Lead Product Manager. 12+ years turning ambiguous, high-stakes problems into shipped products and measurable outcomes across AI/ML, public sector, enterprise platforms and data products.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;450;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#15171C;
+    --paper:#F5F4F0;
+    --paper-2:#FBFAF7;
+    --navy:#0D1430;
+    --navy-2:#111A3D;
+    --cobalt:#1E40E8;
+    --cobalt-soft:#dfe4ff;
+    --slate:#5A6175;
+    --line:#E2E1DB;
+    --line-dark:#26305c;
+    --display:"Bricolage Grotesque",system-ui,sans-serif;
+    --body:"Inter",system-ui,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,monospace;
+    --maxw:1180px;
+    --pad:clamp(20px,5vw,64px);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:var(--body);font-size:17px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  ::selection{background:var(--cobalt);color:#fff;}
+  :focus-visible{outline:2.5px solid var(--cobalt);outline-offset:3px;border-radius:2px;}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--pad);}
+  .eyebrow{
+    font-family:var(--mono);font-size:12px;font-weight:500;
+    letter-spacing:.18em;text-transform:uppercase;color:var(--cobalt);
+  }
+  .eyebrow.muted{color:var(--slate);}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(245,244,240,.82);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px;}
+  .brand{font-family:var(--mono);font-weight:600;font-size:14px;letter-spacing:.04em;}
+  .brand b{color:var(--cobalt);}
+  .nav-links{display:flex;gap:30px;}
+  .nav-links a{
+    font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--slate);transition:color .18s;position:relative;
+  }
+  .nav-links a:hover{color:var(--ink);}
+  .nav-links a::after{
+    content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--cobalt);transition:width .22s ease;
+  }
+  .nav-links a:hover::after{width:100%;}
+  @media(max-width:760px){.nav-links{display:none;}}
+
+  /* ---------- HERO ---------- */
+  .hero{padding-top:clamp(48px,8vw,96px);padding-bottom:clamp(40px,6vw,72px);}
+  .hero-grid{display:grid;grid-template-columns:1.32fr .85fr;gap:clamp(28px,5vw,68px);align-items:center;}
+  .hero h1{
+    font-family:var(--display);font-weight:700;
+    font-size:clamp(38px,6.4vw,76px);line-height:.99;letter-spacing:-.022em;
+    margin:18px 0 0;
+  }
+  .hero h1 .accent{color:var(--cobalt);}
+  .hero .lede{font-size:clamp(17px,1.6vw,20px);color:var(--slate);max-width:46ch;margin-top:24px;}
+  .hero .lede b{color:var(--ink);font-weight:600;}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    font-family:var(--mono);font-size:13px;letter-spacing:.04em;font-weight:500;
+    padding:13px 20px;border-radius:2px;transition:transform .15s, background .18s, color .18s;
+  }
+  .btn-primary{background:var(--cobalt);color:#fff;}
+  .btn-primary:hover{transform:translateY(-2px);background:#1a37c8;}
+  .btn-ghost{border:1px solid var(--ink);color:var(--ink);}
+  .btn-ghost:hover{background:var(--ink);color:var(--paper);}
+
+  .portrait{position:relative;}
+  .portrait .frame{
+    position:absolute;inset:18px -18px -18px 18px;border:1.5px solid var(--cobalt);border-radius:3px;z-index:0;
+  }
+  .portrait img{
+    position:relative;z-index:1;border-radius:3px;width:100%;
+    filter:saturate(1.02);box-shadow:0 24px 60px -28px rgba(13,20,48,.4);
+  }
+  @media(max-width:860px){
+    .hero-grid{grid-template-columns:1fr;gap:40px;}
+    .portrait{max-width:340px;}
+    .portrait .frame{inset:14px -14px -14px 14px;}
+  }
+
+  /* ---------- TRACK RECORD (dark) ---------- */
+  .record{background:var(--navy);color:var(--paper-2);}
+  .record .wrap{padding-block:clamp(56px,8vw,96px);}
+  .record-head{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;margin-bottom:34px;}
+  .record-head h2{
+    font-family:var(--display);font-weight:600;font-size:clamp(26px,3.4vw,38px);
+    letter-spacing:-.018em;margin:6px 0 0;
+  }
+  .ledger{border-top:1px solid var(--line-dark);}
+  .ledger-row{
+    display:grid;grid-template-columns:minmax(150px,200px) 1fr;gap:18px 32px;
+    padding:22px 4px;border-bottom:1px solid var(--line-dark);align-items:center;
+  }
+  .ledger-row .num{
+    font-family:var(--display);font-weight:700;font-size:clamp(30px,4vw,46px);
+    color:#fff;letter-spacing:-.02em;line-height:1;
+  }
+  .ledger-row .num .u{color:var(--cobalt);font-size:.58em;}
+  .ledger-row .desc{color:#c3c8e0;font-size:15.5px;}
+  .ledger-row .desc b{color:#fff;font-weight:600;}
+  @media(max-width:620px){
+    .ledger-row{grid-template-columns:1fr;gap:6px;padding:18px 2px;}
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  .section{padding-block:clamp(60px,9vw,112px);}
+  .section-head{max-width:760px;margin-bottom:clamp(36px,5vw,56px);}
+  .section-head h2{
+    font-family:var(--display);font-weight:600;font-size:clamp(28px,4vw,46px);
+    letter-spacing:-.02em;line-height:1.04;margin:14px 0 0;
+  }
+  .section-head p{color:var(--slate);margin:16px 0 0;font-size:17.5px;max-width:60ch;}
+
+  /* ---------- WORK ---------- */
+  .case{
+    border-top:1px solid var(--line);padding-top:34px;margin-top:46px;
+  }
+  .case:first-of-type{margin-top:0;}
+  .case-top{display:flex;align-items:baseline;gap:20px;flex-wrap:wrap;}
+  .case-idx{font-family:var(--mono);font-size:13px;color:var(--cobalt);font-weight:600;letter-spacing:.06em;}
+  .case-client{font-family:var(--mono);font-size:12px;color:var(--slate);letter-spacing:.12em;text-transform:uppercase;}
+  .case h3{
+    font-family:var(--display);font-weight:600;font-size:clamp(22px,2.8vw,32px);
+    letter-spacing:-.015em;margin:10px 0 0;line-height:1.08;max-width:24ch;
+  }
+  .pao{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:26px;}
+  .pao .col .lab{
+    font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--slate);display:block;margin-bottom:9px;
+  }
+  .pao .col p{margin:0;font-size:15.5px;line-height:1.58;}
+  .pao .col.outcome p{font-weight:450;}
+  .pao .col.outcome .hl{color:var(--cobalt);font-weight:600;}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px;}
+  .tag{
+    font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--slate);
+    border:1px solid var(--line);padding:5px 10px;border-radius:2px;background:var(--paper-2);
+  }
+  @media(max-width:760px){.pao{grid-template-columns:1fr;gap:20px;}}
+
+  /* ---------- CAPABILITIES ---------- */
+  .caps-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  .cap{background:var(--paper-2);padding:28px clamp(20px,3vw,34px);}
+  .cap .lab{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--cobalt);}
+  .cap ul{list-style:none;margin:16px 0 0;padding:0;}
+  .cap li{padding:7px 0;border-bottom:1px dashed var(--line);font-size:15px;color:var(--ink);}
+  .cap li:last-child{border-bottom:none;}
+  .cap li span{color:var(--slate);}
+  @media(max-width:680px){.caps-grid{grid-template-columns:1fr;}}
+
+  /* ---------- BACKGROUND ---------- */
+  .bg-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(32px,5vw,64px);}
+  .roles .role{padding:20px 0;border-bottom:1px solid var(--line);}
+  .roles .role:last-child{border-bottom:none;}
+  .roles .role .when{font-family:var(--mono);font-size:12px;color:var(--slate);letter-spacing:.05em;}
+  .roles .role h4{font-family:var(--display);font-weight:600;font-size:19px;margin:6px 0 4px;letter-spacing:-.01em;}
+  .roles .role .org{color:var(--cobalt);font-weight:500;font-size:14.5px;}
+  .roles .role p{margin:8px 0 0;font-size:14.5px;color:var(--slate);}
+  .side .block{margin-bottom:30px;}
+  .side .lab{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--cobalt);margin-bottom:12px;display:block;}
+  .side ul{list-style:none;margin:0;padding:0;}
+  .side li{padding:6px 0;font-size:14.5px;border-bottom:1px dashed var(--line);}
+  .side li:last-child{border-bottom:none;}
+  .side li b{font-weight:600;}
+  .side li span{color:var(--slate);display:block;font-size:13px;font-family:var(--mono);}
+  @media(max-width:760px){.bg-grid{grid-template-columns:1fr;gap:40px;}}
+
+  /* ---------- WRITING ---------- */
+  .writing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .wcard{
+    border:1px solid var(--line);background:var(--paper-2);border-radius:3px;
+    padding:26px 24px;display:flex;flex-direction:column;gap:12px;
+    transition:transform .16s, border-color .18s, box-shadow .18s;
+  }
+  .wcard:hover{transform:translateY(-3px);border-color:var(--cobalt);box-shadow:0 18px 40px -26px rgba(30,64,232,.5);}
+  .wcard .kind{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--slate);}
+  .wcard h4{font-family:var(--display);font-weight:600;font-size:20px;margin:0;letter-spacing:-.01em;line-height:1.12;}
+  .wcard p{margin:0;font-size:14.5px;color:var(--slate);flex:1;}
+  .wcard .go{font-family:var(--mono);font-size:13px;color:var(--cobalt);font-weight:500;}
+  .wcard .go .arr{transition:transform .18s;display:inline-block;}
+  .wcard:hover .go .arr{transform:translateX(4px);}
+  @media(max-width:780px){.writing-grid{grid-template-columns:1fr;}}
+
+  /* ---------- CONTACT ---------- */
+  .contact{background:var(--navy);color:var(--paper-2);}
+  .contact .wrap{padding-block:clamp(64px,9vw,116px);}
+  .contact h2{font-family:var(--display);font-weight:700;font-size:clamp(34px,6vw,68px);letter-spacing:-.025em;line-height:1;margin:14px 0 0;}
+  .contact h2 .accent{color:var(--cobalt);}
+  .contact p{color:#c3c8e0;max-width:52ch;margin:22px 0 0;font-size:18px;}
+  .contact-links{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px;}
+  .clink{
+    font-family:var(--mono);font-size:13.5px;letter-spacing:.03em;
+    border:1px solid var(--line-dark);color:var(--paper-2);padding:13px 20px;border-radius:2px;
+    transition:background .18s,color .18s,transform .15s,border-color .18s;
+  }
+  .clink:hover{background:var(--cobalt);border-color:var(--cobalt);color:#fff;transform:translateY(-2px);}
+  .avail{font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;color:#8a93c0;margin-top:40px;display:flex;align-items:center;gap:10px;}
+  .avail .dot{width:8px;height:8px;border-radius:50%;background:#3ad29f;box-shadow:0 0 0 4px rgba(58,210,159,.18);}
+
+  footer{background:var(--navy);color:#7b84ad;font-family:var(--mono);font-size:12px;letter-spacing:.04em;border-top:1px solid var(--line-dark);}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-block:26px;}
+
+  /* ---------- REVEAL ---------- */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);}
+  .reveal.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){
+    *{scroll-behavior:auto!important;}
+    .reveal{opacity:1!important;transform:none!important;transition:none!important;}
+    .btn,.wcard,.clink,.nav-links a::after{transition:none!important;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-in">
+    <a class="brand" href="#top">RM<b>.</b></a>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#background">Background</a>
+      <a href="#writing">Writing</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header id="top" class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">Lead Product Manager · London · 12+ Years</span>
+      <h1>I turn ambiguous problems into products that <span class="accent">move the numbers.</span></h1>
+      <p class="lede">Product leader across <b>AI/ML</b>, public-sector digital services, enterprise platforms and data products. From a 0-to-1 ML-assisted platform used by <b>4,000+ specialists</b> to a regulated service that cut case handling from <b>10 days to 2</b>, my work is measured in outcomes, not output.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#work">See selected work <span aria-hidden="true">→</span></a>
+        <a class="btn btn-ghost" href="#contact">Get in touch</a>
+      </div>
+    </div>
+    <div class="portrait">
+      <div class="frame" aria-hidden="true"></div>
+      <img src="headshot.jpg" alt="Portrait of Rohit Mandapalli" width="1000" height="1249">
+    </div>
+  </div>
+</header>
+
+<section class="record" aria-label="Track record">
+  <div class="wrap">
+    <div class="record-head reveal">
+      <span class="eyebrow">The proof</span>
+      <h2>A track record measured in shipped outcomes.</h2>
+    </div>
+    <div class="ledger">
+      <div class="ledger-row reveal">
+        <div class="num">80<span class="u">%</span></div>
+        <div class="desc"><b>Faster clinical document turnaround</b> — from ~40 hours to 8 per cycle on an ML-assisted authoring platform.</div>
+      </div>
+      <div class="ledger-row reveal">
+        <div class="num">~$2<span class="u">M</span></div>
+        <div class="desc"><b>Annual savings</b> delivered by that same platform, launched at 80–90% model accuracy.</div>
+      </div>
+      <div class="ledger-row reveal">
+        <div class="num">10<span class="u">→</span>2<span class="u"> days</span></div>
+        <div class="desc"><b>Case handling time</b> on a 0-to-1 government service, with 90% of manual processes automated.</div>
+      </div>
+      <div class="ledger-row reveal">
+        <div class="num">20<span class="u">M+</span></div>
+        <div class="desc"><b>Customer records modernised</b> on a high-volume data platform, with 25% better migration accuracy.</div>
+      </div>
+      <div class="ledger-row reveal">
+        <div class="num">$50<span class="u">M+</span></div>
+        <div class="desc"><b>RFP and proposal responses led</b>, supporting $18M in life-sciences contract wins in a single quarter.</div>
+      </div>
+      <div class="ledger-row reveal">
+        <div class="num">4,000<span class="u">+</span></div>
+        <div class="desc"><b>Global scientific, clinical and regulatory users</b> served by products I shaped from the ground up.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Selected work</span>
+      <h2>Five products, framed the way I think.</h2>
+      <p>Each one started as a messy, high-stakes problem. The discipline is the same: find the real bottleneck, design the smallest thing that proves the bet, then scale it. Clients described by sector for confidentiality.</p>
+    </div>
+
+    <!-- CASE 1 -->
+    <article class="case reveal">
+      <div class="case-top">
+        <span class="case-idx">01</span>
+        <span class="case-client">Global pharmaceutical organisation · AI / ML</span>
+      </div>
+      <h3>ML-assisted clinical document authoring platform (0-to-1)</h3>
+      <div class="pao">
+        <div class="col problem">
+          <span class="lab">Problem</span>
+          <p>4,000+ medical, clinical and regulatory specialists authored compliance-critical documents through email and manual workflows. No fit-for-purpose product existed, and turnaround was slow and error-prone.</p>
+        </div>
+        <div class="col approach">
+          <span class="lab">Approach</span>
+          <p>Set the product vision and MVP scope on IBM Watson — defining section priorities, ML task scope, confidence levels and acceptance thresholds. Core principle: automate the repetitive and pattern-heavy, flag uncertainty, keep human judgement on high-risk interpretation.</p>
+        </div>
+        <div class="col outcome">
+          <span class="lab">Outcome</span>
+          <p><span class="hl">80% faster</span> turnaround (40h → 8h), <span class="hl">~$2M</span> annual savings, launched at <span class="hl">80–90% model accuracy</span> with a human-in-the-loop review architecture.</p>
+        </div>
+      </div>
+      <div class="tags">
+        <span class="tag">Human-in-the-loop AI</span><span class="tag">IBM Watson</span><span class="tag">Acceptance thresholds</span><span class="tag">Regulated workflows</span><span class="tag">Product vision</span>
+      </div>
+    </article>
+
+    <!-- CASE 2 -->
+    <article class="case reveal">
+      <div class="case-top">
+        <span class="case-idx">02</span>
+        <span class="case-client">UK government agency · Public sector / GDS</span>
+      </div>
+      <h3>Digital case-management service for animal housing (0-to-1)</h3>
+      <div class="pao">
+        <div class="col problem">
+          <span class="lab">Problem</span>
+          <p>Paper records, email approvals and manual reconciliation ran a high-volume regulated operation. Two very different user groups — field staff and admin — were forced through one unfit workflow.</p>
+        </div>
+        <div class="col approach">
+          <span class="lab">Approach</span>
+          <p>Led a 12-person multidisciplinary team from discovery to adoption. Ran workshops to map the manual process, designed distinct flows for field and admin users, built on PowerApps to GDS/WCAG standards, and guided OCR for passport data capture.</p>
+        </div>
+        <div class="col outcome">
+          <span class="lab">Outcome</span>
+          <p>Case handling cut from <span class="hl">10 days to 2</span>, <span class="hl">90%</span> of manual processes automated, errors and backdating down <span class="hl">90%</span>. Recognised with a promotion for leadership and impact.</p>
+        </div>
+      </div>
+      <div class="tags">
+        <span class="tag">GDS Service Standard</span><span class="tag">WCAG 2.2 AA</span><span class="tag">Service design</span><span class="tag">PowerApps</span><span class="tag">Team leadership</span>
+      </div>
+    </article>
+
+    <!-- CASE 3 -->
+    <article class="case reveal">
+      <div class="case-top">
+        <span class="case-idx">03</span>
+        <span class="case-client">UK tax authority · Enterprise platform</span>
+      </div>
+      <h3>Valuation platform modernisation on Azure &amp; Dynamics 365</h3>
+      <div class="pao">
+        <div class="col problem">
+          <span class="lab">Problem</span>
+          <p>Commercial tax valuation ran on brittle Excel and SQL legacy processes, serving 1,000+ valuers with slow, hard-to-maintain quality-control review.</p>
+        </div>
+        <div class="col approach">
+          <span class="lab">Approach</span>
+          <p>Led product ownership for the QC workstream within the wider modernisation programme — refining backlogs across two cross-functional teams, translating complex processes into user stories and acceptance criteria, and driving low-code delivery on PowerApps.</p>
+        </div>
+        <div class="col outcome">
+          <span class="lab">Outcome</span>
+          <p>Operational redundancy reduced <span class="hl">30%</span>, contributing to <span class="hl">80%</span> efficiency gains and a <span class="hl">90%</span> no-code solution rate across the workstream.</p>
+        </div>
+      </div>
+      <div class="tags">
+        <span class="tag">Product ownership</span><span class="tag">Azure</span><span class="tag">Dynamics 365</span><span class="tag">Backlog &amp; user stories</span><span class="tag">Low-code delivery</span>
+      </div>
+    </article>
+
+    <!-- CASE 4 -->
+    <article class="case reveal">
+      <div class="case-top">
+        <span class="case-idx">04</span>
+        <span class="case-client">Leading UK health &amp; beauty retailer · Data product</span>
+      </div>
+      <h3>Customer data platform &amp; analytics cloud migration</h3>
+      <div class="pao">
+        <div class="col problem">
+          <span class="lab">Problem</span>
+          <p>A customer data platform holding 20M+ records needed modernising before it could support unified profiles, segmentation and personalised campaigns.</p>
+        </div>
+        <div class="col approach">
+          <span class="lab">Approach</span>
+          <p>Authored the modernisation roadmap, defined migration and transformation logic with structured validation, and built a data catalogue to surface redundancy and de-risk the move — laying the foundation for analytics-led marketing.</p>
+        </div>
+        <div class="col outcome">
+          <span class="lab">Outcome</span>
+          <p>Migration accuracy improved <span class="hl">25%</span>, <span class="hl">15%</span> redundant data identified to cut storage and migration cost, with retargeting workflows enabled across app and email.</p>
+        </div>
+      </div>
+      <div class="tags">
+        <span class="tag">Customer data platform</span><span class="tag">Data migration</span><span class="tag">Data quality</span><span class="tag">Segmentation</span><span class="tag">Personalisation</span>
+      </div>
+    </article>
+
+    <!-- CASE 5 -->
+    <article class="case reveal">
+      <div class="case-top">
+        <span class="case-idx">05</span>
+        <span class="case-client">Personal venture · GenAI prototype</span>
+      </div>
+      <h3>Bille the Goat — a GenAI receipt-intelligence prototype</h3>
+      <div class="pao">
+        <div class="col problem">
+          <span class="lab">Problem</span>
+          <p>Consumer receipt management is fragmented across paper, email, downloads and apps — and most products fail at the very first step: capture.</p>
+        </div>
+        <div class="col approach">
+          <span class="lab">Approach</span>
+          <p>Built a live prototype on Lovable to explore AI-native consumer design end to end: flexible ingestion channels, OCR extraction, natural-language search, budgeting, return-window and warranty reminders — connected to my writing on AI-mediated commerce.</p>
+        </div>
+        <div class="col outcome">
+          <span class="lab">Outcome</span>
+          <p>Evidence of <span class="hl">venture-style product thinking</span> at speed — spotting a pain point, shaping a proposition, and shipping a working prototype. Built for learning, not as a scaled product.</p>
+        </div>
+      </div>
+      <div class="tags">
+        <span class="tag">GenAI prototyping</span><span class="tag">AI-native UX</span><span class="tag">Lovable</span><span class="tag">Rapid prototyping</span><span class="tag">0-to-1</span>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="capabilities" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Capabilities</span>
+      <h2>What I bring to a product team.</h2>
+    </div>
+    <div class="caps-grid reveal">
+      <div class="cap">
+        <span class="lab">Product &amp; discovery</span>
+        <ul>
+          <li>Product vision &amp; strategy <span>— 0-to-1 and platform scale</span></li>
+          <li>Opportunity framing &amp; proposition design</li>
+          <li>MVP scoping &amp; roadmapping</li>
+          <li>User research, journey mapping &amp; validated learning</li>
+          <li>Outcome &amp; KPI definition</li>
+        </ul>
+      </div>
+      <div class="cap">
+        <span class="lab">AI / ML product</span>
+        <ul>
+          <li>Human-in-the-loop AI <span>— delivered on IBM Watson</span></li>
+          <li>Model accuracy &amp; acceptance-threshold definition</li>
+          <li>GenAI prototyping &amp; prompt design <span>— prototype / POC stage</span></li>
+          <li>Responsible AI, traceability &amp; review workflows</li>
+          <li>RAG &amp; hallucination-mitigation concepts</li>
+        </ul>
+      </div>
+      <div class="cap">
+        <span class="lab">Delivery &amp; leadership</span>
+        <ul>
+          <li>SAFe Product Owner / Product Manager</li>
+          <li>Backlog ownership, user stories &amp; acceptance criteria</li>
+          <li>Cross-functional team leadership <span>— up to 25 people</span></li>
+          <li>Stakeholder &amp; C-suite engagement</li>
+          <li>RFP / bid leadership &amp; business cases</li>
+        </ul>
+      </div>
+      <div class="cap">
+        <span class="lab">Domains &amp; platforms</span>
+        <ul>
+          <li>Life sciences, healthcare &amp; regulated environments</li>
+          <li>UK public sector <span>— GDS, WCAG, accessibility</span></li>
+          <li>Retail data &amp; enterprise platforms</li>
+          <li>Azure · Google Cloud · Dynamics 365 · PowerApps</li>
+          <li>Jira · Confluence · Azure DevOps · Figma · SQL</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="background" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Background</span>
+      <h2>Twelve years, deliberately broad.</h2>
+    </div>
+    <div class="bg-grid reveal">
+      <div class="roles">
+        <div class="role">
+          <span class="when">2016 — Present</span>
+          <h4>Lead Product Manager / Product Strategist</h4>
+          <span class="org">Cognizant Technology Solutions · United Kingdom</span>
+          <p>Progressed from Senior Business Analyst (2016) to Product Owner / Project Manager (2018) to Lead PM (2020). Senior consulting product leader across 0-to-1 builds, public-sector service design, ML-assisted products, enterprise platforms and data products for global clients.</p>
+        </div>
+        <div class="role">
+          <span class="when">2010 — 2013</span>
+          <h4>Engineer · Research &amp; Development</h4>
+          <span class="org">Hyundai Motor India Engineering</span>
+          <p>Led 200+ research projects across global vehicle programmes — 40% structural-strength gain at 20% lower cost, with 80% automation of quality checks. Recognised in Hyundai's Global Milestone Report.</p>
+        </div>
+        <div class="role">
+          <span class="when">2015</span>
+          <h4>Strategy Intern</h4>
+          <span class="org">Anand Group</span>
+          <p>Supported CEO/CSO-level M&amp;A and joint-venture strategy — benchmarking, financial analysis and market sizing for $300M of potential investment.</p>
+        </div>
+      </div>
+      <div class="side">
+        <div class="block">
+          <span class="lab">Education</span>
+          <ul>
+            <li><b>MBA — Strategy &amp; Marketing</b><span>IIM Lucknow · 2014–2016</span></li>
+            <li><b>B.Tech — Mechanical Engineering</b><span>JNTU Hyderabad · 2006–2010</span></li>
+          </ul>
+        </div>
+        <div class="block">
+          <span class="lab">Certifications</span>
+          <ul>
+            <li><b>SAFe Product Owner / Product Manager</b></li>
+            <li><b>Microsoft Azure AI Fundamentals</b></li>
+            <li><b>Google Cloud Digital Leader</b></li>
+            <li><b>Microsoft Dynamics 365 Fundamentals</b></li>
+            <li><b>Sustainable Design &amp; Sustainable AI</b></li>
+          </ul>
+        </div>
+        <div class="block">
+          <span class="lab">Recognition</span>
+          <ul>
+            <li><b>3× internal hackathon winner</b><span>AI commute, subscriptions &amp; travel planning</span></li>
+            <li><b>Presales excellence award</b></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="writing" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Writing &amp; building</span>
+      <h2>Thinking out loud, in public.</h2>
+      <p>I write to sharpen product judgement and build prototypes to pressure-test ideas before they're roadmaps.</p>
+    </div>
+    <div class="writing-grid reveal">
+      <a class="wcard" href="https://rohitmandapalli.substack.com" target="_blank" rel="noopener">
+        <span class="kind">Substack · Essay series</span>
+        <h4>AI seeking vs legacy search</h4>
+        <p>A series on AI-mediated commerce, product strategy and how AI is reshaping the way people discover and decide.</p>
+        <span class="go">Read the series <span class="arr" aria-hidden="true">→</span></span>
+      </a>
+      <a class="wcard" href="https://billethegoat.lovable.app" target="_blank" rel="noopener">
+        <span class="kind">Live prototype</span>
+        <h4>Bille the Goat</h4>
+        <p>A working GenAI receipt-intelligence prototype exploring AI-native consumer product design from capture to insight.</p>
+        <span class="go">Try the prototype <span class="arr" aria-hidden="true">→</span></span>
+      </a>
+      <a class="wcard" href="https://github.com/rohitmandapalli" target="_blank" rel="noopener">
+        <span class="kind">Code &amp; experiments</span>
+        <h4>GitHub</h4>
+        <p>Prototypes, experiments and the technical side of a product manager who likes to build, not just brief.</p>
+        <span class="go">See the repos <span class="arr" aria-hidden="true">→</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <span class="eyebrow reveal">Contact</span>
+    <h2 class="reveal">Let's build something <span class="accent">that ships.</span></h2>
+    <p class="reveal">I'm a product manager who's most useful where the problem is ambiguous, the stakes are real, and the answer has to hold up in front of users. If that's the kind of work on your roadmap, let's talk.</p>
+    <div class="contact-links reveal">
+      <a class="clink" href="mailto:rohit.mandapalli@iiml.org">rohit.mandapalli@iiml.org</a>
+      <a class="clink" href="https://linkedin.com/in/rohitmandapalli" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="clink" href="https://github.com/rohitmandapalli" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="clink" href="https://rohitmandapalli.substack.com" target="_blank" rel="noopener">Substack ↗</a>
+    </div>
+    <div class="avail reveal"><span class="dot" aria-hidden="true"></span> Open to senior product roles in AI, platforms and consumer products · London / remote</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Rohit Mandapalli</span>
+    <span>Lead Product Manager · London, UK</span>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12, rootMargin:"0px 0px -40px 0px"});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
