@@ -32,7 +32,8 @@ FACTS
 - Prototype: Bille the Goat — a GenAI receipt-intelligence prototype built on Lovable (exploration, not a scaled product).
 - Education: MBA (Strategy & Marketing), IIM Lucknow; B.Tech, JNTU Hyderabad.
 - Certifications: SAFe PO/PM, Microsoft Azure AI Fundamentals, Google Cloud Digital Leader, Microsoft Dynamics 365 Fundamentals, Sustainable AI.
-- Contact: via the website's contact section (email, LinkedIn, GitHub, Substack).`;
+- Contact: via the website's contact section (email, LinkedIn, GitHub, Substack).
+- Client appreciation: praised for bridging technical and business needs, clear demos that simplified complex systems for pharma scientists and medical writers, building simple and efficient systems, and strong change management via user guides and training; and in business development for people management, turning around demanding RFP timelines and building reusable proposal templates.`;
 
 export default {
   async fetch(request, env) {
