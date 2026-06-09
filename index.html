@@ -529,27 +529,39 @@
     var history=[], opened=false, busy=false, problemMode=false;
 
     var faq=[
-      {k:['hello','hi ','hey','hiya'],a:"Hello. Ask me anything about Rohit's experience, skills, the industries he's worked in, or his projects."},
       {k:['watson','document','authoring','clinical'],a:"On IBM Watson, Rohit set the vision and scope for a 0-to-1 ML-assisted clinical document authoring platform used by 4,000+ specialists, defining acceptance thresholds and a human-in-the-loop review model. It cut turnaround by about 80% and saved roughly $2M a year."},
-      {k:['ai','ml','machine learning','genai','generative'],a:"Rohit's delivered AI work is ML-based, centred on the IBM Watson clinical authoring platform with a human-in-the-loop design. His generative-AI work, such as the Bille the Goat prototype, is exploratory prototype-stage rather than scaled delivery."},
-      {k:['industr','sector','client','domain','worked'],a:"He has delivered across life sciences, retail, public sector, logistics, healthcare and automotive — including global pharmaceuticals, UK central government, enterprise platforms and retail data."},
-      {k:['experience','background','years','summary','about','who'],a:"Rohit is a lead product manager with 12+ years, currently at Cognizant in London, spanning 0-to-1 builds, public-sector service design, ML products, enterprise platforms and data products."},
-      {k:['education','degree','mba','study','qualif','university'],a:"He holds an MBA in Strategy & Marketing from IIM Lucknow and a B.Tech from JNTU Hyderabad, plus certifications including SAFe PO/PM, Azure AI Fundamentals and Google Cloud Digital Leader."},
-      {k:['gds','government','public sector','wcag','accessib'],a:"For a UK government agency he led a 12-person team to build a 0-to-1 case-management service to GDS and WCAG standards, cutting case handling from 10 days to 2 and automating 90% of manual processes."},
-      {k:['bille','goat','receipt','prototype'],a:"Bille the Goat is Rohit's GenAI receipt-intelligence prototype, built on Lovable as a venture-style exploration of AI-native consumer design. There's a live link in the Selected work section."},
-      {k:['data','records','migration','retail'],a:"On a retail customer data platform he led modernisation of 20M+ records, improving migration accuracy by 25% and identifying redundant data to cut cost."},
-      {k:['contact','email','reach','hire','linkedin','github','substack'],a:"You can reach Rohit through the contact section below, which links his email, LinkedIn, GitHub and Substack."}
+      {k:['ai','ml','machine learning','genai','generative','artificial','automation'],a:"Rohit's delivered AI work is ML-based, centred on the IBM Watson clinical authoring platform with a human-in-the-loop design. His generative-AI work, such as the Bille the Goat prototype, is exploratory prototype-stage rather than scaled delivery."},
+      {k:['industr','sector','domain','vertical'],a:"He has delivered across life sciences, retail, public sector, logistics, healthcare and automotive — including global pharmaceuticals, UK central government, enterprise platforms and retail data."},
+      {k:['experience','background','year','summar','overview','profile','tell me about rohit'],a:"Rohit is a lead product manager with 12+ years, currently at Cognizant in London, spanning 0-to-1 builds, public-sector service design, ML products, enterprise platforms and data products."},
+      {k:['education','degree','mba','study','qualif','university','academic'],a:"He holds an MBA in Strategy & Marketing from IIM Lucknow and a B.Tech from JNTU Hyderabad, plus certifications including SAFe PO/PM, Azure AI Fundamentals and Google Cloud Digital Leader."},
+      {k:['gds','government','public sector','wcag','accessib','civil service'],a:"For a UK government agency he led a 12-person team to build a 0-to-1 case-management service to GDS and WCAG standards, cutting case handling from 10 days to 2 and automating 90% of manual processes."},
+      {k:['bille','goat','receipt'],a:"Bille the Goat is Rohit's GenAI receipt-intelligence prototype, built on Lovable as a venture-style exploration of AI-native consumer design. There's a live link in the Selected work section."},
+      {k:['data','record','migrat','customer data'],a:"On a retail customer data platform he led modernisation of 20M+ records, improving migration accuracy by 25% and identifying redundant data to cut cost."},
+      {k:['contact','email','reach','hire','linkedin','github','substack','connect'],a:"You can reach Rohit through the contact section below, which links his email, LinkedIn, GitHub and Substack."}
     ];
     var APPROACH="Here's how Rohit would typically approach a challenge like that:\n\n1. Frame the real problem — quick discovery with users and stakeholders to find the actual bottleneck, not the assumed one.\n2. Shape the smallest bet — a focused MVP with clear success metrics agreed before building.\n3. Apply the right pattern — human-in-the-loop AI where judgement matters (as on the IBM Watson platform), GDS-style service design for regulated or public workflows, or data-platform modernisation for messy, high-volume data.\n4. Validate and scale — measure against the metrics, scale what works, cut what doesn't.\n\nFor a tailored take on your specific problem, connect the live assistant or reach Rohit via the contact links below.";
+    var GREETING="Hello. Ask about Rohit's experience, his AI and ML work, the industries he's covered, or his projects — or paste a problem and I'll outline how he'd approach it.";
+    var DEFAULT="I can tell you about Rohit's experience, his AI and ML work, the industries he's covered, his projects, education and how to reach him — or paste a problem and I'll outline how he'd approach it. Could you rephrase the question?";
     function looksLikeProblem(q){
-      if(q.length>80) return true;
-      return /how (would|can|could|might|should)|we need|help us|struggling|our (team|company|product|users|customers)/i.test(q);
+      if(q.length>140) return true;
+      return /\b(we need|help us|our (team|company|product|users|customers|process|business)|struggling|bottleneck|pain point|problem statement|how do we|how can we|how should we)\b/i.test(q);
+    }
+    function norm(t){return ' '+String(t).toLowerCase().replace(/[^a-z0-9 ]+/g,' ').replace(/\s+/g,' ').trim()+' ';}
+    function hitKey(s,k){
+      if(k.indexOf(' ')>-1) return (s.indexOf(' '+k+' ')>-1 || s.indexOf(' '+k)>-1) ? 2 : 0;
+      return new RegExp('\\b'+k).test(s) ? 1 : 0;
     }
     function offline(q,problem){
       if(problem||looksLikeProblem(q)) return APPROACH;
-      var s=(' '+q.toLowerCase()+' ');
-      for(var i=0;i<faq.length;i++){for(var j=0;j<faq[i].k.length;j++){if(s.indexOf(faq[i].k[j])>-1) return faq[i].a;}}
-      return "I don't have that on hand here. The contact links below are the best way to reach Rohit directly.";
+      var qt=q.trim().toLowerCase();
+      if(qt.length<14 && /^(hi|hey|hello|hiya|yo)\b/.test(qt)) return GREETING;
+      var s=norm(q), best=null, bs=0;
+      for(var i=0;i<faq.length;i++){
+        var sc=0, ks=faq[i].k;
+        for(var j=0;j<ks.length;j++){ sc+=hitKey(s,ks[j]); }
+        if(sc>bs){ bs=sc; best=faq[i]; }
+      }
+      return (best && bs>0) ? best.a : DEFAULT;
     }
 
     function addMsg(text,who){
