@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-mode="hifi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,17 +53,17 @@
 
   /* NAV */
   nav{position:sticky;top:0;z-index:50;background:var(--nav-bg);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);}
-  .nav-in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px;}
-  .brand{font-weight:800;font-size:16px;letter-spacing:-.01em;}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;gap:12px;height:60px;}
+  .brand{font-weight:800;font-size:15px;letter-spacing:-.01em;white-space:nowrap;}
   .brand b{color:var(--accent);}
-  .nav-right{display:flex;align-items:center;gap:clamp(14px,3vw,30px);}
-  .nav-links{display:flex;gap:26px;}
-  .nav-links a{font-size:13px;font-weight:500;letter-spacing:.02em;color:var(--muted);position:relative;}
+  .nav-right{display:flex;align-items:center;gap:clamp(10px,1.6vw,22px);}
+  .nav-links{display:flex;gap:clamp(12px,1.5vw,20px);}
+  .nav-links a{font-size:12.5px;font-weight:500;letter-spacing:.01em;color:var(--muted);position:relative;white-space:nowrap;}
   .nav-links a:hover{color:var(--text);}
   @media(max-width:780px){.nav-links{display:none;}}
 
   .theme{display:inline-flex;border:1px solid var(--border);border-radius:999px;padding:3px;gap:2px;background:var(--surface);}
-  .theme button{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.01em;color:var(--muted);background:none;border:0;padding:7px 12px;min-height:30px;border-radius:999px;cursor:pointer;line-height:1;}
+  .theme button{font-family:var(--sans);font-size:11.5px;font-weight:600;letter-spacing:.01em;color:var(--muted);background:none;border:0;padding:7px 10px;min-height:30px;border-radius:999px;cursor:pointer;line-height:1;white-space:nowrap;}
   .theme button:hover{color:var(--text);}
   .theme button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent);}
   @media(max-width:420px){.theme button{padding:7px 9px;}}
@@ -206,7 +206,43 @@
   .quote p{margin:0;font-size:16px;line-height:1.62;color:var(--text);}
   .quote .by{font-size:13px;color:var(--muted);margin-top:6px;}
   .quote .by strong{display:block;color:var(--text);font-weight:600;font-size:13.5px;}
+  .quote-wide{grid-column:1/-1;}
   @media(max-width:760px){.quotes-grid{grid-template-columns:1fr;}}
+
+  /* MODE SWITCH + HI-FI EXTRAS */
+  .nav-left{display:flex;align-items:center;gap:14px;min-width:0;}
+  @media(max-width:420px){.brand{font-size:14px;}}
+  .progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:120;pointer-events:none;}
+  .progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),#7C5CFF 55%,#00B3A4);transition:width .12s linear;}
+  .hero{position:relative;overflow:hidden;}
+  .contact{position:relative;overflow:hidden;}
+  .hero .wrap,.contact .wrap{position:relative;z-index:1;}
+  .orb{position:absolute;border-radius:50%;filter:blur(72px);opacity:.32;pointer-events:none;animation:drift 16s ease-in-out infinite;}
+  .orb-a{width:420px;height:420px;right:-120px;top:-140px;background:radial-gradient(circle at 35% 35%,var(--accent),#7C5CFF 70%,transparent);}
+  .orb-b{width:300px;height:300px;left:-130px;bottom:-150px;background:radial-gradient(circle at 60% 40%,#00B3A4,var(--accent) 75%,transparent);animation-delay:-7s;}
+  .orb-c{width:460px;height:460px;right:-150px;bottom:-220px;background:radial-gradient(circle at 40% 40%,#3D5BFF,#7C5CFF 65%,transparent);opacity:.4;}
+  @keyframes drift{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(34px,-22px) scale(1.06);}}
+  .hero h1 .accent{background:linear-gradient(92deg,var(--accent) 10%,#7C5CFF 55%,#00B3A4 100%);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .contact h2 .accent{background:linear-gradient(92deg,var(--band-accent),#9DEFE2);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .impact-cell{transition:transform .18s,box-shadow .18s;}
+  .impact-cell:hover{transform:translateY(-3px);box-shadow:0 16px 34px -22px rgba(13,20,48,.45);}
+  [data-theme="hc"] .hero h1 .accent,[data-theme="hc"] .contact h2 .accent{background:none;-webkit-text-fill-color:currentColor;color:var(--accent);}
+  [data-theme="hc"] .contact h2 .accent{color:var(--band-accent);}
+  [data-theme="hc"] .orb{display:none;}
+
+  /* SIMPLE MODE: strip the extras */
+  [data-mode="simple"] .orb,[data-mode="simple"] .progress{display:none;}
+  [data-mode="simple"] .reveal{opacity:1!important;transform:none!important;transition:none!important;}
+  [data-mode="simple"] .hero h1 .accent{background:none;-webkit-text-fill-color:currentColor;color:var(--accent);}
+  [data-mode="simple"] .contact h2 .accent{background:none;-webkit-text-fill-color:currentColor;color:var(--band-accent);}
+  [data-mode="simple"] .btn:hover,[data-mode="simple"] .wcard:hover,[data-mode="simple"] .clink:hover,[data-mode="simple"] .impact-cell:hover,[data-mode="simple"] .chat-launch:hover{transform:none;box-shadow:none;}
+  [data-mode="simple"] .wcard:hover{border-color:var(--border);}
+  [data-mode="simple"] .wcard:hover .go .arr,[data-mode="simple"] .case-link a:hover span{transform:none;}
+
+  @media(prefers-reduced-motion:reduce){
+    .orb{animation:none!important;}
+    .progress span{transition:none!important;}
+  }
 
   /* AI ASSISTANT */
   .visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;}
@@ -244,15 +280,22 @@
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
+<div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
 
 <nav>
   <div class="wrap nav-in">
-    <a class="brand" href="#top">Rohit Mandapalli<b>.</b></a>
+    <div class="nav-left">
+      <a class="brand" href="#top">Rohit Mandapalli<b>.</b></a>
+      <div class="theme mode" role="group" aria-label="Experience mode">
+        <button type="button" data-mode-btn="simple" aria-pressed="false">Simple</button>
+        <button type="button" data-mode-btn="hifi" aria-pressed="true">Hi-fi</button>
+      </div>
+    </div>
     <div class="nav-right">
       <div class="nav-links">
         <a href="#impact">Impact</a>
         <a href="#work">Work</a>
-        <a href="#words">Praise</a>
+        <a href="#words">Recognition</a>
         <a href="#capabilities">Capabilities</a>
         <a href="#background">Background</a>
         <a href="#contact">Contact</a>
@@ -268,6 +311,8 @@
 
 <main id="main">
 <header id="top" class="hero">
+  <div class="orb orb-a" aria-hidden="true"></div>
+  <div class="orb orb-b" aria-hidden="true"></div>
   <div class="wrap">
     <div class="hero-profile">
       <img class="avatar" src="headshot.jpg" alt="Portrait of Rohit Mandapalli" width="288" height="288">
@@ -420,6 +465,11 @@
         <blockquote><p>Rohit has a real acumen for people management, and his work on the RFP process has been pivotal. He has turned around seemingly impossible proposal response times and has had a remarkable run on some of the most demanding bids this year. He understands the business and the financials exceptionally well, and the reusable templates he built make proposal building faster, cleaner and more complete.</p></blockquote>
         <figcaption class="by"><strong>Engagement leadership</strong>Business development &amp; bids</figcaption>
       </figure>
+      <figure class="quote quote-wide">
+        <span class="mark" aria-hidden="true">&ldquo;</span>
+        <blockquote><p>An exceptionally able business analyst who built a really strong understanding of our very complex business — and in particular every flavour of quality assurance. Much of what has been achieved comes down to his ability to turn complex, sometimes nebulous business requirements into clear user stories with high-quality acceptance criteria. He understands an issue from both the business and the technical perspective and is a great intermediary between the two. He played a key role in shaping our QA and QC processes — the business rules, question sets and validation logic that underpin them — proactively engaging stakeholders and mediating where business needs and platform functionality didn't align. A key member of a very successful team, he added significant value by bridging business and technical teams and driving design and delivery forward.</p></blockquote>
+        <figcaption class="by"><strong>Senior client stakeholder</strong>Tax &amp; valuation modernisation programme</figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -462,7 +512,7 @@
       <div class="side">
         <div class="block"><span class="lab">Education</span><ul><li><b>MBA — Strategy &amp; Marketing</b><span>IIM Lucknow · 2014–2016</span></li><li><b>B.Tech — Mechanical Engineering</b><span>JNTU Hyderabad · 2006–2010</span></li></ul></div>
         <div class="block"><span class="lab">Certifications</span><ul><li><b>SAFe Product Owner / Product Manager</b></li><li><b>Microsoft Azure AI Fundamentals</b></li><li><b>Google Cloud Digital Leader</b></li><li><b>Microsoft Dynamics 365 Fundamentals</b></li><li><b>Sustainable Design &amp; Sustainable AI</b></li></ul></div>
-        <div class="block"><span class="lab">Recognition</span><ul><li><b>3× internal hackathon winner</b><span>AI commute, subscriptions &amp; travel planning</span></li><li><b>Presales excellence award</b></li></ul></div>
+        <div class="block"><span class="lab">Awards</span><ul><li><b>3× internal hackathon winner</b><span>AI commute, subscriptions &amp; travel planning</span></li><li><b>Presales excellence award</b></li></ul></div>
       </div>
     </div>
   </div>
@@ -505,6 +555,7 @@
 </main>
 
 <section class="band contact" id="contact" aria-labelledby="ct-h">
+  <div class="orb orb-c" aria-hidden="true"></div>
   <div class="wrap">
     <span class="eyebrow reveal">Contact</span>
     <h2 id="ct-h" class="reveal">Let's work <span class="accent">together.</span></h2>
@@ -564,6 +615,29 @@
     }catch(e){}
     setTheme(initial);
 
+    /* Simple / Hi-fi mode */
+    var modeBtns=Array.prototype.slice.call(document.querySelectorAll('[data-mode-btn]'));
+    function setMode(m){
+      root.setAttribute('data-mode',m);
+      modeBtns.forEach(function(b){b.setAttribute('aria-pressed', String(b.getAttribute('data-mode-btn')===m));});
+    }
+    modeBtns.forEach(function(b){b.addEventListener('click',function(){setMode(b.getAttribute('data-mode-btn'));});});
+    var initMode='hifi';
+    try{ if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){initMode='simple';} }catch(e){}
+    setMode(initMode);
+
+    /* Scroll progress (hi-fi) */
+    var bar=document.getElementById('progressBar');
+    if(bar){
+      var onScroll=function(){
+        var h=document.documentElement;
+        var max=h.scrollHeight-h.clientHeight;
+        bar.style.width=(max>0?(h.scrollTop/max*100):0)+'%';
+      };
+      window.addEventListener('scroll',onScroll,{passive:true});
+      onScroll();
+    }
+
     var io=new IntersectionObserver(function(entries){
       entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
     },{threshold:.12, rootMargin:"0px 0px -40px 0px"});
@@ -596,7 +670,7 @@
       {k:['gds','government','public sector','wcag','accessib','civil service'],a:"For a UK government agency he led a 12-person team to build a 0-to-1 case-management service to GDS and WCAG standards, cutting case handling from 10 days to 2 and automating 90% of manual processes."},
       {k:['bille','goat','receipt'],a:"Bille the Goat is Rohit's GenAI receipt-intelligence prototype, built on Lovable as a venture-style exploration of AI-native consumer design. There's a live link in the Selected work section."},
       {k:['data','record','migrat','customer data'],a:"On a retail customer data platform he led modernisation of 20M+ records, improving migration accuracy by 25% and identifying redundant data to cut cost."},
-      {k:['testimonial','appreciation','feedback','praise','recommend','reference','review'],a:"Clients have praised Rohit for bridging technical and business needs, simplifying complex systems for non-technical audiences, and turning around demanding RFPs with reusable templates. You can read their words in the 'In their words' section."},
+      {k:['testimonial','appreciation','feedback','praise','recognition','recommend','reference','review'],a:"Clients have praised Rohit for bridging technical and business needs, simplifying complex systems for non-technical audiences, turning nebulous requirements into clear user stories, shaping QA/QC processes, and turning around demanding RFPs. You can read their words in the Recognition section."},
       {k:['contact','email','reach','hire','linkedin','github','substack','connect'],a:"You can reach Rohit through the contact section below, which links his email, LinkedIn, GitHub and Substack."}
     ];
     var APPROACH="Here's how Rohit would typically approach a challenge like that:\n\n1. Frame the real problem — quick discovery with users and stakeholders to find the actual bottleneck, not the assumed one.\n2. Shape the smallest bet — a focused MVP with clear success metrics agreed before building.\n3. Apply the right pattern — human-in-the-loop AI where judgement matters (as on the IBM Watson platform), GDS-style service design for regulated or public workflows, or data-platform modernisation for messy, high-volume data.\n4. Validate and scale — measure against the metrics, scale what works, cut what doesn't.\n\nFor a tailored take on your specific problem, connect the live assistant or reach Rohit via the contact links below.";

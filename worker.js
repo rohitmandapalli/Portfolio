@@ -33,7 +33,7 @@ FACTS
 - Education: MBA (Strategy & Marketing), IIM Lucknow; B.Tech, JNTU Hyderabad.
 - Certifications: SAFe PO/PM, Microsoft Azure AI Fundamentals, Google Cloud Digital Leader, Microsoft Dynamics 365 Fundamentals, Sustainable AI.
 - Contact: via the website's contact section (email, LinkedIn, GitHub, Substack).
-- Client appreciation: praised for bridging technical and business needs, clear demos that simplified complex systems for pharma scientists and medical writers, building simple and efficient systems, and strong change management via user guides and training; and in business development for people management, turning around demanding RFP timelines and building reusable proposal templates.`;
+- Client appreciation: praised for bridging technical and business needs, clear demos that simplified complex systems for pharma scientists and medical writers, building simple and efficient systems, and strong change management via user guides and training; in business development for people management, turning around demanding RFP timelines and building reusable proposal templates; and by a senior tax-programme stakeholder as an exceptionally able analyst who turns complex, nebulous requirements into clear user stories with high-quality acceptance criteria, understands issues from both business and technical perspectives, and played a key role shaping QA/QC processes (business rules, question sets, validation logic).`;
 
 export default {
   async fetch(request, env) {
