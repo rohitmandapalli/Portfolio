@@ -10,24 +10,24 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#F4F3EF; --surface:#FBFAF8; --text:#16181D; --muted:#565D6E;
-    --accent:#1E40E8; --on-accent:#FFFFFF; --link:#1E40E8; --border:#E0DFD8;
-    --band-bg:#0D1430; --band-text:#EEF0F8; --band-muted:#C4C9E1; --band-accent:#AAB9FF; --band-border:#27315E;
+    --bg:#F4F3EF; --surface:#FBFAF8; --text:#16181D; --muted:#5D5A52;
+    --accent:#C2410C; --on-accent:#FFFFFF; --link:#C2410C; --border:#E3DFD5;
+    --band-bg:#1C120C; --band-text:#F5EEE8; --band-muted:#CBB9AB; --band-accent:#FF9A5C; --band-border:#3C2B1F;
     --nav-bg:rgba(244,243,239,.9);
     --focus:#FFDD00; --focus-ring:#0B0C0C;
     --sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     --maxw:1120px; --pad:clamp(20px,5vw,60px);
   }
   [data-theme="dark"]{
-    --bg:#0B1022; --surface:#121833; --text:#ECEEF6; --muted:#A9AFC6;
-    --accent:#AAB9FF; --on-accent:#0B1022; --link:#AAB9FF; --border:#27305A;
-    --band-bg:#070B18; --band-text:#ECEEF6; --band-muted:#AEB4CC; --band-accent:#AAB9FF; --band-border:#1F2748;
-    --nav-bg:rgba(11,16,34,.9);
+    --bg:#150D08; --surface:#1F1610; --text:#F3ECE5; --muted:#B5A294;
+    --accent:#FF9A5C; --on-accent:#2A1408; --link:#FF9A5C; --border:#3B2A1E;
+    --band-bg:#0E0805; --band-text:#F3ECE5; --band-muted:#C4B2A4; --band-accent:#FFAF73; --band-border:#33241A;
+    --nav-bg:rgba(21,13,8,.9);
     --focus:#FFDD00; --focus-ring:#FFFFFF;
   }
   [data-theme="hc"]{
     --bg:#FFFFFF; --surface:#FFFFFF; --text:#000000; --muted:#1A1A1A;
-    --accent:#0010A8; --on-accent:#FFFFFF; --link:#0010A8; --border:#000000;
+    --accent:#A33800; --on-accent:#FFFFFF; --link:#A33800; --border:#000000;
     --band-bg:#000000; --band-text:#FFFFFF; --band-muted:#FFFFFF; --band-accent:#FFEB00; --band-border:#FFFFFF;
     --nav-bg:#FFFFFF;
     --focus:#FFDD00; --focus-ring:#000000;
@@ -72,7 +72,7 @@
   main{display:block;}
   .hero{padding-top:clamp(40px,7vw,80px);padding-bottom:clamp(36px,6vw,64px);}
   .hero-profile{display:flex;align-items:center;gap:26px;flex-wrap:wrap;}
-  .avatar{width:min(3in,72vw);height:min(3in,72vw);aspect-ratio:1/1;object-fit:cover;object-position:50% 26%;border-radius:4px;border:1px solid var(--border);box-shadow:0 16px 40px -24px rgba(13,20,48,.45);}
+  .avatar{width:min(3in,72vw);height:min(3in,72vw);aspect-ratio:1/1;object-fit:cover;object-position:50% 26%;border-radius:4px;border:1px solid var(--border);box-shadow:0 16px 40px -24px rgba(46,22,8,.45);}
   .who .eyebrow{display:block;}
   .who .name{display:block;font-size:clamp(22px,3vw,30px);font-weight:700;letter-spacing:-.02em;margin-top:8px;}
   .hero h1{font-size:clamp(33px,5.4vw,58px);line-height:1.04;letter-spacing:-.028em;font-weight:800;margin:30px 0 0;max-width:18ch;}
@@ -119,6 +119,18 @@
   .pao p{margin:0;font-size:15.5px;line-height:1.56;}
   .pao .outcome .hl{color:var(--accent);font-weight:600;}
   .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;}
+  /* CASE DIAGRAMS */
+  .diagram{margin:26px 0 0;max-width:790px;}
+  .diagram svg{width:100%;height:auto;display:block;}
+  .dg-box{fill:var(--surface);stroke:var(--border);stroke-width:1.3;}
+  .dg-box-acc{fill:var(--accent);stroke:var(--accent);}
+  .dg-t{fill:var(--text);font-family:var(--sans);font-size:13px;font-weight:600;}
+  .dg-s{fill:var(--muted);font-family:var(--sans);font-size:10.5px;font-weight:500;}
+  .dg-ta{fill:var(--on-accent);font-family:var(--sans);font-size:13px;font-weight:700;}
+  .dg-sa{fill:var(--on-accent);opacity:.85;font-family:var(--sans);font-size:10.5px;font-weight:500;}
+  .dg-ar{stroke:var(--muted);stroke-width:1.6;fill:none;}
+  .dg-ah{fill:var(--muted);}
+  .dg-cap{font-size:12px;color:var(--muted);margin:8px 0 0;}
   .case-link{margin:18px 0 0;}
   .case-link a{font-size:14px;font-weight:600;color:var(--accent);}
   .case-link a .arr,.case-link a span{display:inline-block;transition:transform .18s;}
@@ -213,19 +225,19 @@
   .nav-left{display:flex;align-items:center;gap:14px;min-width:0;}
   @media(max-width:420px){.brand{font-size:14px;}}
   .progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:120;pointer-events:none;}
-  .progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),#7C5CFF 55%,#00B3A4);transition:width .12s linear;}
+  .progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,#FF6B2C,#FF2D78 55%,#FFB300);transition:width .12s linear;}
   .hero{position:relative;overflow:hidden;}
   .contact{position:relative;overflow:hidden;}
   .hero .wrap,.contact .wrap{position:relative;z-index:1;}
-  .orb{position:absolute;border-radius:50%;filter:blur(72px);opacity:.32;pointer-events:none;animation:drift 16s ease-in-out infinite;}
-  .orb-a{width:420px;height:420px;right:-120px;top:-140px;background:radial-gradient(circle at 35% 35%,var(--accent),#7C5CFF 70%,transparent);}
-  .orb-b{width:300px;height:300px;left:-130px;bottom:-150px;background:radial-gradient(circle at 60% 40%,#00B3A4,var(--accent) 75%,transparent);animation-delay:-7s;}
-  .orb-c{width:460px;height:460px;right:-150px;bottom:-220px;background:radial-gradient(circle at 40% 40%,#3D5BFF,#7C5CFF 65%,transparent);opacity:.4;}
+  .orb{position:absolute;border-radius:50%;filter:blur(72px);opacity:.30;pointer-events:none;animation:drift 16s ease-in-out infinite;}
+  .orb-a{width:420px;height:420px;right:-120px;top:-140px;background:radial-gradient(circle at 35% 35%,#FF6B2C,#FF2D78 70%,transparent);}
+  .orb-b{width:300px;height:300px;left:-130px;bottom:-150px;background:radial-gradient(circle at 60% 40%,#FFB300,#FF6B2C 75%,transparent);animation-delay:-7s;}
+  .orb-c{width:460px;height:460px;right:-150px;bottom:-220px;background:radial-gradient(circle at 40% 40%,#FF6B2C,#FF2D78 65%,transparent);opacity:.38;}
   @keyframes drift{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(34px,-22px) scale(1.06);}}
-  .hero h1 .accent{background:linear-gradient(92deg,var(--accent) 10%,#7C5CFF 55%,#00B3A4 100%);-webkit-background-clip:text;background-clip:text;color:transparent;}
-  .contact h2 .accent{background:linear-gradient(92deg,var(--band-accent),#9DEFE2);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .hero h1 .accent{background:linear-gradient(92deg,#E84B1E 5%,#FF2D78 55%,#FFB300 100%);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .contact h2 .accent{background:linear-gradient(92deg,var(--band-accent),#FFD9A0);-webkit-background-clip:text;background-clip:text;color:transparent;}
   .impact-cell{transition:transform .18s,box-shadow .18s;}
-  .impact-cell:hover{transform:translateY(-3px);box-shadow:0 16px 34px -22px rgba(13,20,48,.45);}
+  .impact-cell:hover{transform:translateY(-3px);box-shadow:0 16px 34px -22px rgba(46,22,8,.45);}
   [data-theme="hc"] .hero h1 .accent,[data-theme="hc"] .contact h2 .accent{background:none;-webkit-text-fill-color:currentColor;color:var(--accent);}
   [data-theme="hc"] .contact h2 .accent{color:var(--band-accent);}
   [data-theme="hc"] .orb{display:none;}
@@ -246,11 +258,11 @@
 
   /* AI ASSISTANT */
   .visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;}
-  .chat-launch{position:fixed;right:20px;bottom:20px;z-index:80;display:inline-flex;align-items:center;gap:9px;background:var(--accent);color:var(--on-accent);border:none;border-radius:999px;padding:13px 18px;font-family:var(--sans);font-size:14px;font-weight:600;cursor:pointer;box-shadow:0 12px 30px -10px rgba(13,20,48,.5);min-height:48px;transition:transform .15s;}
+  .chat-launch{position:fixed;right:20px;bottom:20px;z-index:80;display:inline-flex;align-items:center;gap:9px;background:var(--accent);color:var(--on-accent);border:none;border-radius:999px;padding:13px 18px;font-family:var(--sans);font-size:14px;font-weight:600;cursor:pointer;box-shadow:0 12px 30px -10px rgba(46,22,8,.5);min-height:48px;transition:transform .15s;}
   .chat-launch svg{width:18px;height:18px;flex:none;}
   .chat-launch:hover{transform:translateY(-2px);}
   @media(max-width:520px){.chat-launch span{display:none;}.chat-launch{padding:15px;}}
-  .chat-panel{position:fixed;right:20px;bottom:20px;z-index:90;width:min(384px,calc(100vw - 32px));height:min(560px,calc(100vh - 40px));background:var(--surface);border:1px solid var(--border);border-radius:14px;box-shadow:0 26px 64px -18px rgba(13,20,48,.5);display:flex;flex-direction:column;overflow:hidden;}
+  .chat-panel{position:fixed;right:20px;bottom:20px;z-index:90;width:min(384px,calc(100vw - 32px));height:min(560px,calc(100vh - 40px));background:var(--surface);border:1px solid var(--border);border-radius:14px;box-shadow:0 26px 64px -18px rgba(46,22,8,.5);display:flex;flex-direction:column;overflow:hidden;}
   .chat-panel[hidden]{display:none;}
   .chat-head{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid var(--border);}
   .chat-head strong{display:block;font-size:15px;}
@@ -398,6 +410,26 @@
         <div class="approach"><span class="lab">Approach</span><p>Set the product vision and MVP scope on IBM Watson — defining section priorities, ML task scope, confidence levels and acceptance thresholds. Core principle: automate the repetitive and pattern-heavy, flag uncertainty, keep human judgement on high-risk interpretation.</p></div>
         <div class="outcome"><span class="lab">Outcome</span><p><span class="hl">80% faster</span> turnaround (40h &rarr; 8h), <span class="hl">~$2M</span> annual savings, launched at <span class="hl">80&ndash;90% model accuracy</span> with a human-in-the-loop review architecture.</p></div>
       </div>
+      <figure class="diagram" role="img" aria-label="Flow diagram: source documents from 4,000+ specialists pass through confidence-scored ML extraction, uncertain content goes to human review, producing approved output with turnaround cut from 40 hours to 8.">
+        <svg viewBox="0 0 760 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect class="dg-box" x="1" y="26" width="160" height="48" rx="7"/>
+          <text class="dg-t" x="81" y="46" text-anchor="middle">Source documents</text>
+          <text class="dg-s" x="81" y="62" text-anchor="middle">4,000+ specialists</text>
+          <line class="dg-ar" x1="161" y1="50" x2="192" y2="50"/><polygon class="dg-ah" points="192,45 201,50 192,55"/>
+          <rect class="dg-box" x="201" y="26" width="160" height="48" rx="7"/>
+          <text class="dg-t" x="281" y="46" text-anchor="middle">ML extraction</text>
+          <text class="dg-s" x="281" y="62" text-anchor="middle">confidence-scored</text>
+          <line class="dg-ar" x1="361" y1="50" x2="392" y2="50"/><polygon class="dg-ah" points="392,45 401,50 392,55"/>
+          <rect class="dg-box" x="401" y="26" width="160" height="48" rx="7"/>
+          <text class="dg-t" x="481" y="46" text-anchor="middle">Human review</text>
+          <text class="dg-s" x="481" y="62" text-anchor="middle">where uncertain</text>
+          <line class="dg-ar" x1="561" y1="50" x2="592" y2="50"/><polygon class="dg-ah" points="592,45 601,50 592,55"/>
+          <rect class="dg-box-acc" x="601" y="26" width="158" height="48" rx="7"/>
+          <text class="dg-ta" x="680" y="46" text-anchor="middle">Approved output</text>
+          <text class="dg-sa" x="680" y="62" text-anchor="middle">40h &#8594; 8h per cycle</text>
+        </svg>
+        <figcaption class="dg-cap">The human-in-the-loop framework: automate the pattern-heavy, flag uncertainty, keep judgement human.</figcaption>
+      </figure>
       <div class="tags"><span class="tag">Human-in-the-loop AI</span><span class="tag">IBM Watson</span><span class="tag">Acceptance thresholds</span><span class="tag">Regulated workflows</span><span class="tag">Product vision</span></div>
     </article>
 
@@ -409,6 +441,30 @@
         <div class="approach"><span class="lab">Approach</span><p>Led a 12-person multidisciplinary team from discovery to adoption. Ran workshops to map the manual process, designed distinct flows for field and admin users, built on PowerApps to GDS/WCAG standards, and guided OCR for passport data capture.</p></div>
         <div class="outcome"><span class="lab">Outcome</span><p>Case handling cut from <span class="hl">10 days to 2</span>, <span class="hl">90%</span> of manual processes automated, errors and backdating down <span class="hl">90%</span>. Recognised with a promotion for leadership and impact.</p></div>
       </div>
+      <figure class="diagram" role="img" aria-label="Flow diagram: field staff and admin staff each follow a tailored flow that converges into a single digital case record with automated checks, delivering decisions in 2 days instead of 10.">
+        <svg viewBox="0 0 760 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect class="dg-box" x="1" y="6" width="150" height="46" rx="7"/>
+          <text class="dg-t" x="76" y="25" text-anchor="middle">Field staff</text>
+          <text class="dg-s" x="76" y="41" text-anchor="middle">mobile-first flow</text>
+          <rect class="dg-box" x="1" y="88" width="150" height="46" rx="7"/>
+          <text class="dg-t" x="76" y="107" text-anchor="middle">Admin staff</text>
+          <text class="dg-s" x="76" y="123" text-anchor="middle">casework flow</text>
+          <path class="dg-ar" d="M151,29 C195,29 195,62 235,67"/><polygon class="dg-ah" points="233,61 244,68 232,71"/>
+          <path class="dg-ar" d="M151,111 C195,111 195,78 235,73"/><polygon class="dg-ah" points="232,69 244,72 233,79"/>
+          <rect class="dg-box" x="246" y="47" width="170" height="46" rx="7"/>
+          <text class="dg-t" x="331" y="66" text-anchor="middle">Single case record</text>
+          <text class="dg-s" x="331" y="82" text-anchor="middle">OCR passport capture</text>
+          <line class="dg-ar" x1="416" y1="70" x2="438" y2="70"/><polygon class="dg-ah" points="438,65 447,70 438,75"/>
+          <rect class="dg-box" x="447" y="47" width="158" height="46" rx="7"/>
+          <text class="dg-t" x="526" y="66" text-anchor="middle">Automated checks</text>
+          <text class="dg-s" x="526" y="82" text-anchor="middle">90% of manual steps</text>
+          <line class="dg-ar" x1="605" y1="70" x2="627" y2="70"/><polygon class="dg-ah" points="627,65 636,70 627,75"/>
+          <rect class="dg-box-acc" x="636" y="47" width="123" height="46" rx="7"/>
+          <text class="dg-ta" x="697" y="66" text-anchor="middle">2-day decisions</text>
+          <text class="dg-sa" x="697" y="82" text-anchor="middle">down from 10</text>
+        </svg>
+        <figcaption class="dg-cap">Two very different user groups, one source of truth: tailored flows converging on a single record.</figcaption>
+      </figure>
       <div class="tags"><span class="tag">GDS Service Standard</span><span class="tag">WCAG 2.2 AA</span><span class="tag">Service design</span><span class="tag">PowerApps</span><span class="tag">Team leadership</span></div>
     </article>
 
@@ -420,6 +476,26 @@
         <div class="approach"><span class="lab">Approach</span><p>Led product ownership for the QC workstream within the wider modernisation programme — refining backlogs across two cross-functional teams, translating complex processes into user stories and acceptance criteria, and driving low-code delivery on PowerApps.</p></div>
         <div class="outcome"><span class="lab">Outcome</span><p>Operational redundancy reduced <span class="hl">30%</span>, contributing to <span class="hl">80%</span> efficiency gains and a <span class="hl">90%</span> no-code solution rate across the workstream.</p></div>
       </div>
+      <figure class="diagram" role="img" aria-label="Flow diagram: brittle legacy Excel and SQL processes are translated into clear user stories with acceptance criteria, delivered as a low-code QC build, producing 30 percent leaner operations.">
+        <svg viewBox="0 0 760 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect class="dg-box" x="1" y="26" width="160" height="48" rx="7"/>
+          <text class="dg-t" x="81" y="46" text-anchor="middle">Legacy Excel &amp; SQL</text>
+          <text class="dg-s" x="81" y="62" text-anchor="middle">brittle, manual QC</text>
+          <line class="dg-ar" x1="161" y1="50" x2="192" y2="50"/><polygon class="dg-ah" points="192,45 201,50 192,55"/>
+          <rect class="dg-box" x="201" y="26" width="160" height="48" rx="7"/>
+          <text class="dg-t" x="281" y="46" text-anchor="middle">User stories &amp; ACs</text>
+          <text class="dg-s" x="281" y="62" text-anchor="middle">nebulous &#8594; clear</text>
+          <line class="dg-ar" x1="361" y1="50" x2="392" y2="50"/><polygon class="dg-ah" points="392,45 401,50 392,55"/>
+          <rect class="dg-box" x="401" y="26" width="160" height="48" rx="7"/>
+          <text class="dg-t" x="481" y="46" text-anchor="middle">Low-code QC build</text>
+          <text class="dg-s" x="481" y="62" text-anchor="middle">90% no-code</text>
+          <line class="dg-ar" x1="561" y1="50" x2="592" y2="50"/><polygon class="dg-ah" points="592,45 601,50 592,55"/>
+          <rect class="dg-box-acc" x="601" y="26" width="158" height="48" rx="7"/>
+          <text class="dg-ta" x="680" y="46" text-anchor="middle">Leaner operations</text>
+          <text class="dg-sa" x="680" y="62" text-anchor="middle">30% less redundancy</text>
+        </svg>
+        <figcaption class="dg-cap">The translation framework: from nebulous business rules to buildable, testable stories.</figcaption>
+      </figure>
       <div class="tags"><span class="tag">Product ownership</span><span class="tag">Azure</span><span class="tag">Dynamics 365</span><span class="tag">Backlog &amp; user stories</span><span class="tag">Low-code delivery</span></div>
     </article>
 
@@ -431,6 +507,26 @@
         <div class="approach"><span class="lab">Approach</span><p>Authored the modernisation roadmap, defined migration and transformation logic with structured validation, and built a data catalogue to surface redundancy and de-risk the move — laying the foundation for analytics-led marketing.</p></div>
         <div class="outcome"><span class="lab">Outcome</span><p>Migration accuracy improved <span class="hl">25%</span>, <span class="hl">15%</span> redundant data identified to cut storage and migration cost, with retargeting workflows enabled across app and email.</p></div>
       </div>
+      <figure class="diagram" role="img" aria-label="Flow diagram: 20 million plus fragmented records pass through a data catalogue and validation, forming unified customer profiles that power targeted campaigns with 25 percent better migration accuracy.">
+        <svg viewBox="0 0 760 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect class="dg-box" x="1" y="26" width="160" height="48" rx="7"/>
+          <text class="dg-t" x="81" y="46" text-anchor="middle">20M+ records</text>
+          <text class="dg-s" x="81" y="62" text-anchor="middle">fragmented legacy</text>
+          <line class="dg-ar" x1="161" y1="50" x2="192" y2="50"/><polygon class="dg-ah" points="192,45 201,50 192,55"/>
+          <rect class="dg-box" x="201" y="26" width="160" height="48" rx="7"/>
+          <text class="dg-t" x="281" y="46" text-anchor="middle">Catalogue &amp; validate</text>
+          <text class="dg-s" x="281" y="62" text-anchor="middle">15% redundancy found</text>
+          <line class="dg-ar" x1="361" y1="50" x2="392" y2="50"/><polygon class="dg-ah" points="392,45 401,50 392,55"/>
+          <rect class="dg-box" x="401" y="26" width="160" height="48" rx="7"/>
+          <text class="dg-t" x="481" y="46" text-anchor="middle">Unified profiles</text>
+          <text class="dg-s" x="481" y="62" text-anchor="middle">+25% migration accuracy</text>
+          <line class="dg-ar" x1="561" y1="50" x2="592" y2="50"/><polygon class="dg-ah" points="592,45 601,50 592,55"/>
+          <rect class="dg-box-acc" x="601" y="26" width="158" height="48" rx="7"/>
+          <text class="dg-ta" x="680" y="46" text-anchor="middle">Targeted campaigns</text>
+          <text class="dg-sa" x="680" y="62" text-anchor="middle">app &amp; email retargeting</text>
+        </svg>
+        <figcaption class="dg-cap">Clean the foundation first: catalogue, validate, unify — then personalisation becomes possible.</figcaption>
+      </figure>
       <div class="tags"><span class="tag">Customer data platform</span><span class="tag">Data migration</span><span class="tag">Data quality</span><span class="tag">Segmentation</span><span class="tag">Personalisation</span></div>
     </article>
 
@@ -442,6 +538,26 @@
         <div class="approach"><span class="lab">Approach</span><p>Built a live prototype on Lovable to explore AI-native consumer design end to end: flexible ingestion channels, OCR extraction, natural-language search, budgeting, return-window and warranty reminders — connected to a wider thesis on AI-mediated commerce.</p></div>
         <div class="outcome"><span class="lab">Outcome</span><p>Evidence of <span class="hl">venture-style product thinking</span> at speed — spotting a pain point, shaping a proposition, and shipping a working prototype. Built for learning, not as a scaled product.</p></div>
       </div>
+      <figure class="diagram" role="img" aria-label="Flow diagram: receipts arrive by photo, email or upload, AI extraction parses them, spend becomes searchable in natural language, powering budgets, return-window and warranty reminders.">
+        <svg viewBox="0 0 760 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect class="dg-box" x="1" y="26" width="160" height="48" rx="7"/>
+          <text class="dg-t" x="81" y="46" text-anchor="middle">Any channel</text>
+          <text class="dg-s" x="81" y="62" text-anchor="middle">photo &middot; email &middot; upload</text>
+          <line class="dg-ar" x1="161" y1="50" x2="192" y2="50"/><polygon class="dg-ah" points="192,45 201,50 192,55"/>
+          <rect class="dg-box" x="201" y="26" width="160" height="48" rx="7"/>
+          <text class="dg-t" x="281" y="46" text-anchor="middle">AI extraction</text>
+          <text class="dg-s" x="281" y="62" text-anchor="middle">OCR + parsing</text>
+          <line class="dg-ar" x1="361" y1="50" x2="392" y2="50"/><polygon class="dg-ah" points="392,45 401,50 392,55"/>
+          <rect class="dg-box" x="401" y="26" width="160" height="48" rx="7"/>
+          <text class="dg-t" x="481" y="46" text-anchor="middle">Searchable spend</text>
+          <text class="dg-s" x="481" y="62" text-anchor="middle">natural language</text>
+          <line class="dg-ar" x1="561" y1="50" x2="592" y2="50"/><polygon class="dg-ah" points="592,45 601,50 592,55"/>
+          <rect class="dg-box-acc" x="601" y="26" width="158" height="48" rx="7"/>
+          <text class="dg-ta" x="680" y="46" text-anchor="middle">Smart reminders</text>
+          <text class="dg-sa" x="680" y="62" text-anchor="middle">budgets &middot; returns</text>
+        </svg>
+        <figcaption class="dg-cap">Win the capture step and everything downstream follows — the core bet of the prototype.</figcaption>
+      </figure>
       <div class="tags"><span class="tag">GenAI prototyping</span><span class="tag">AI-native UX</span><span class="tag">Lovable</span><span class="tag">Rapid prototyping</span><span class="tag">0-to-1</span></div>
       <p class="case-link"><a href="https://billethegoat.lovable.app" target="_blank" rel="noopener">View the live Bille the Goat prototype on Lovable <span aria-hidden="true">&rarr;</span></a></p>
     </article>
